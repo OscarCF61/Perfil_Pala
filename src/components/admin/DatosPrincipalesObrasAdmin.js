@@ -1,4 +1,14 @@
 import {Grid, TextField } from '@material-ui/core';
+import { createMuiTheme } from '@material-ui/core/styles';
+import { ThemeProvider } from '@material-ui/styles';
+
+const theme = createMuiTheme({
+    palette: {
+      secondary: {
+        main: '#b3d233',
+      },
+    },
+  });
 
 const DatosPrincipalesObrasAdmin = ({ datosprincipalesobra, guardarDatosPrincipalesObra, erroresdatos, guardarErroresDatos }) => {
 
@@ -13,7 +23,8 @@ const DatosPrincipalesObrasAdmin = ({ datosprincipalesobra, guardarDatosPrincipa
         })
     }
 
-    return (        
+    return (       
+        <ThemeProvider theme={theme}>
             <Grid container spacing={3}>                
                 <Grid item xs={12} md={3}>
                     <TextField                                              
@@ -25,6 +36,7 @@ const DatosPrincipalesObrasAdmin = ({ datosprincipalesobra, guardarDatosPrincipa
                         value={nombreObra}
                         onChange={handleChange}         
                         fullWidth
+                        color="secondary"
                     />
                 </Grid>
                 <Grid item xs={12} md={3}>                        
@@ -37,6 +49,7 @@ const DatosPrincipalesObrasAdmin = ({ datosprincipalesobra, guardarDatosPrincipa
                         value={direccionObra}
                         onChange={handleChange}         
                         fullWidth
+                        color="secondary"
                     />                      
             </Grid>
                 <Grid item xs={12} md={3}>                        
@@ -49,9 +62,11 @@ const DatosPrincipalesObrasAdmin = ({ datosprincipalesobra, guardarDatosPrincipa
                         value={dependenciaObra}
                         onChange={handleChange}         
                         fullWidth
+                        color="secondary"
                     />                     
                 </Grid>                
-            </Grid>                    
+            </Grid>   
+            </ThemeProvider>                  
     );
 }
  

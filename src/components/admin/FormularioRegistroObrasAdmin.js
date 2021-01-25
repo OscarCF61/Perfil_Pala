@@ -1,6 +1,16 @@
 import {Button, InputLabel, Select, MenuItem, Grid, TextField } from '@material-ui/core';
 import { Add } from '@material-ui/icons/'
 import { styled } from '@material-ui/core/styles';
+import { createMuiTheme } from '@material-ui/core/styles';
+import { ThemeProvider } from '@material-ui/styles';
+
+const theme = createMuiTheme({
+    palette: {
+      secondary: {
+        main: '#b3d233',
+      },
+    },
+  });
 
 
 
@@ -77,6 +87,7 @@ const FormularioRegistroObras = ({ datos, guardarDatos, guardarError, rows, guar
         <form
             onSubmit={submitTabla}
         >
+            <ThemeProvider theme={theme}>
             <Grid container spacing={3}>                
                 <Grid item xs={12} md={3}>
                     <TextField                                              
@@ -87,6 +98,7 @@ const FormularioRegistroObras = ({ datos, guardarDatos, guardarError, rows, guar
                         value={folioItem}
                         onChange={handleChange}         
                         fullWidth
+                        color="secondary"
                     />
                 </Grid>
                 <Grid item xs={12} md={3}>                        
@@ -98,6 +110,7 @@ const FormularioRegistroObras = ({ datos, guardarDatos, guardarError, rows, guar
                         value={categoria}
                         onChange={handleChange}
                         fullWidth
+                        color="secondary"
                     >
                         {
                             categorias.map(item => <MenuItem value={item}>{item}</MenuItem>)
@@ -113,7 +126,7 @@ const FormularioRegistroObras = ({ datos, guardarDatos, guardarError, rows, guar
                         value={subcategoria}
                         onChange={handleChange}
                         fullWidth
-                    >
+                        color="secondary"                    >
                         {
                             subcategorias.map(item => <MenuItem value={item}>{item}</MenuItem>)
                         }
@@ -128,6 +141,7 @@ const FormularioRegistroObras = ({ datos, guardarDatos, guardarError, rows, guar
                         value={producto}
                         onChange={handleChange}
                         fullWidth
+                        color="secondary"
                     >
                         {
                             productos.map(item => <MenuItem value={item}>{item}</MenuItem>)
@@ -144,7 +158,8 @@ const FormularioRegistroObras = ({ datos, guardarDatos, guardarError, rows, guar
                         disabled
                         value={unidad}
                         onChange={handleChange}
-                        fullWidth                                    
+                        fullWidth
+                        color="secondary"                                    
                     />
                 </Grid>
                 <Grid item xs={12} md={3}>
@@ -156,7 +171,8 @@ const FormularioRegistroObras = ({ datos, guardarDatos, guardarError, rows, guar
                         value={requeridos}
                         onChange={handleChange}
                         type='number'
-                        fullWidth                                    
+                        fullWidth
+                        color="secondary"                              
                     />
                 </Grid>
                 <Grid item xs={12} md={3}>
@@ -167,7 +183,8 @@ const FormularioRegistroObras = ({ datos, guardarDatos, guardarError, rows, guar
                         label="Anotaciones"
                         value={anotaciones}
                         onChange={handleChange}
-                        fullWidth                                    
+                        fullWidth
+                        color="secondary"                                 
                     />
                 </Grid>
                 <Grid item xs={12} md={3}>
@@ -181,6 +198,7 @@ const FormularioRegistroObras = ({ datos, guardarDatos, guardarError, rows, guar
                     </ButtonComponent>
                 </Grid>
             </Grid>
+            </ThemeProvider>
         </form>
      );
 }

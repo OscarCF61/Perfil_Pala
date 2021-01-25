@@ -2,6 +2,16 @@ import React, { Fragment } from 'react';
 import {Button, InputLabel, Select, MenuItem, Grid, TextField } from '@material-ui/core';
 import { Add } from '@material-ui/icons/'
 import { styled } from '@material-ui/core/styles';
+import { createMuiTheme } from '@material-ui/core/styles';
+import { ThemeProvider } from '@material-ui/styles';
+
+const theme = createMuiTheme({
+    palette: {
+      secondary: {
+        main: '#b3d233',
+      },
+    },
+  });
 
 const ButtonComponent = styled('button')({
     height: '100%',
@@ -64,7 +74,9 @@ const FormularioCotizarObraProv = ({ guardarBandBotonRegistrar, guardarRows, row
     }
     return (        
         <Fragment>
+             <ThemeProvider theme={theme}>
             <Grid container spacing={1}>
+           
                 <Grid item xs={12} md={3}>
                     <TextField
                         id="sostenimiento"
@@ -74,6 +86,7 @@ const FormularioCotizarObraProv = ({ guardarBandBotonRegistrar, guardarRows, row
                         onChange={handleChange}
                         type='number'
                         fullWidth
+                        color="secondary"         
                     />
                 </Grid>
                 <Grid item xs={12} md={3}>
@@ -83,7 +96,8 @@ const FormularioCotizarObraProv = ({ guardarBandBotonRegistrar, guardarRows, row
                         label="Condiciones"                        
                         value={condiciones}
                         onChange={handleChange}
-                        fullWidth                                    
+                        fullWidth    
+                        color="secondary"                                         
                     />
                 </Grid>
             </Grid>
@@ -104,6 +118,7 @@ const FormularioCotizarObraProv = ({ guardarBandBotonRegistrar, guardarRows, row
                             value={categoria}
                             onChange={handleChange}
                             fullWidth
+                            color="secondary"         
                         >
                             {
                                 categorias.map(item => <MenuItem key={item} value={item}>{item}</MenuItem>)
@@ -119,6 +134,7 @@ const FormularioCotizarObraProv = ({ guardarBandBotonRegistrar, guardarRows, row
                             value={subcategoria}
                             onChange={handleChange}
                             fullWidth
+                            color="secondary"         
                         >
                             {
                                 subcategorias.map(item => <MenuItem key={item} value={item}>{item}</MenuItem>)
@@ -134,6 +150,7 @@ const FormularioCotizarObraProv = ({ guardarBandBotonRegistrar, guardarRows, row
                             value={producto}
                             onChange={handleChange}
                             fullWidth
+                            color="secondary"         
                         >
                             {
                                 productos.map(item => <MenuItem key={item} value={item}>{item}</MenuItem>)
@@ -148,7 +165,8 @@ const FormularioCotizarObraProv = ({ guardarBandBotonRegistrar, guardarRows, row
                             disabled
                             value={unidad}
                             onChange={handleChange}
-                            fullWidth                                    
+                            fullWidth  
+                            color="secondary"                                           
                         />
                     </Grid>
                 </Grid>
@@ -161,7 +179,8 @@ const FormularioCotizarObraProv = ({ guardarBandBotonRegistrar, guardarRows, row
                             label="Requeridos"
                             value={requeridos}
                             onChange={handleChange}                        
-                            fullWidth                                    
+                            fullWidth 
+                            color="secondary"                                            
                         />
                     </Grid>
                     <Grid item xs={12} md={3}>
@@ -172,7 +191,8 @@ const FormularioCotizarObraProv = ({ guardarBandBotonRegistrar, guardarRows, row
                             label="Precio Unitario"
                             value={preciounitario}
                             onChange={handleChange}
-                            fullWidth                                    
+                            fullWidth     
+                            color="secondary"                                        
                         />
                     </Grid>
                     <Grid item xs={12} md={3}>
@@ -183,7 +203,8 @@ const FormularioCotizarObraProv = ({ guardarBandBotonRegistrar, guardarRows, row
                             label="Anotaciones"
                             value={anotaciones}
                             onChange={handleChange}
-                            fullWidth                                    
+                            fullWidth  
+                            color="secondary"                                  
                         />
                     </Grid>
                     <Grid item xs={12} md={3}>
@@ -199,6 +220,7 @@ const FormularioCotizarObraProv = ({ guardarBandBotonRegistrar, guardarRows, row
                 </Grid>
 
             </form>
+             </ThemeProvider>
         </Fragment>
     )
 }
