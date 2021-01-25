@@ -408,7 +408,7 @@ export default function Dashboard() {
   }
 
   return (
-    <div className={classes.root}>
+    <div className={classes.root}  align="center">
       <CssBaseline />
       <AppBar position="absolute" className={clsx(classes.appBar, open && classes.appBarShift)}>
         <Toolbar className={classes.toolbar}>
@@ -432,6 +432,7 @@ export default function Dashboard() {
               <ExitToApp onClick={salirlogin} />
             </Badge>
           </IconButton>
+         
         </Toolbar>
       </AppBar>
       <Drawer
@@ -472,8 +473,13 @@ export default function Dashboard() {
           />
         }
       </Drawer>
+      
       <main className={classes.content}>
-        <div className={classes.appBarSpacer} />        
+        
+        <div className={classes.appBarSpacer} />   
+        
+      <img style={{width: 170, marginTop:"20px"}} src={imagenes.imgjpg} />
+         
             {
               nivel_acceso === 0 ? paginaAdmin() : paginaUsuario()
             }
