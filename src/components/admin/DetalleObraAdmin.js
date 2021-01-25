@@ -1,6 +1,16 @@
 import { useState, Fragment, useEffect } from 'react';
 import { makeStyles, Grid, Button, CssBaseline, Typography, Checkbox, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TablePagination, TableRow } from '@material-ui/core/';
 import Copyright from '../Copyright'
+import { createMuiTheme } from '@material-ui/core/styles';
+import { ThemeProvider } from '@material-ui/styles';
+
+const theme = createMuiTheme({
+    palette: {
+      secondary: {
+        main: '#b3d233',
+      },
+    },
+  });
 
 const useStyles = makeStyles((theme) => ({ 
     layout: {
@@ -178,6 +188,7 @@ export default function DetalleObraAdmin({ obra }) {
 
   return (
     <Fragment>
+         <ThemeProvider theme={theme}>
         <CssBaseline />      
         <main className={classes.layout}>
             <Paper className={classes.paper}>
@@ -217,7 +228,7 @@ export default function DetalleObraAdmin({ obra }) {
                                                 checked={checks[row.folioItem]}
                                                 id={row.folioItem}
                                                 variant="contained"
-                                                color="primary"
+                                                color="secondary"
                                                 onClick={seleccionarFolio}
                                             /> : value }
                                             </TableCell>
@@ -255,6 +266,7 @@ export default function DetalleObraAdmin({ obra }) {
             </Paper>
             <Copyright />
         </main>
+        </ThemeProvider>
     </Fragment>
     
   );
