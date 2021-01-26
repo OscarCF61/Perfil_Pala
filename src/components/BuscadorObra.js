@@ -1,6 +1,16 @@
 import FormControlLabel from '@material-ui/core/FormControlLabel'
 import {Switch, Grid, TextField, withStyles} from '@material-ui/core/'
 import { Typography} from '@material-ui/core/';
+import { createMuiTheme } from '@material-ui/core/styles';
+import { ThemeProvider } from '@material-ui/styles';
+
+const theme = createMuiTheme({
+    palette: {
+      secondary: {
+        main: '#b3d233',
+      },
+    },
+  });
 
 const SwitchPurple = withStyles({
 	switchBase: {
@@ -89,6 +99,7 @@ const BuscadorObra = ({ folio, guardarFolio, obrastotal, guardarRows, guardarErr
     }
 
 	return (
+        <ThemeProvider theme={theme}>
         <Grid
             container
             spacing={0}
@@ -114,9 +125,12 @@ const BuscadorObra = ({ folio, guardarFolio, obrastotal, guardarRows, guardarErr
                 name="folio"
                 label="folio"
                 value={folio}
-                onChange={handleChangeFolio}                                                             
+                onChange={handleChangeFolio}
+                color="secondary"                                                          
             />
+            
         </Grid>
+        </ThemeProvider>
 	)
 }
 

@@ -27,6 +27,7 @@ const ButtonComponent = styled('button')({
 
     '&:hover': {
         background: 'linear-gradient(#b3d233, #d4e157)',
+        color:'white'
     }
 });
 
@@ -192,7 +193,6 @@ const FormularioRegistroObras = ({ datos, guardarDatos, guardarError, rows, guar
                     className={classes.btn}
                     type='submit'
                     fullWidth
-                    startIcon={<Add />}
                     >
                         AÑADIR
                     </ButtonComponent>

@@ -26,6 +26,7 @@ const ButtonComponent = styled('button')({
 
     '&:hover': {
         background: 'linear-gradient(#b3d233, #d4e157)',
+         color:'white'
     }
 });
 

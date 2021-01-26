@@ -40,8 +40,8 @@ const useStyles = makeStyles((theme) => ({
         color:'#424242',
 
         '&:hover': {
-            color:'#000',
-            fontWeight: '700',
+            color:'#fff',
+            fontWeight: '800',
         }
 
 
